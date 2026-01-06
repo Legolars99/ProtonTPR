@@ -1,13 +1,14 @@
 # ProtonTPR
 A small repo that allows the Thrustmaster TPR rudders to work with Elite Dangerous under Steam Proton.
+Modified to run on Bazzite.
+Note: The build requires `libevedev-dev` and `build-essential`. I used an Ubuntu 24.04 DistroShelf for that and moved the binary over afterwards.
+
 
 Tested on:
-Ubuntu 22.04
-Linux Mint 22 Wilma
-
+Bazzite F43.20260101
 ## Installation
 
-Build:
+Build (on Ubuntu):
 ```
 ./make.sh
 ```
@@ -27,7 +28,7 @@ sudo ./uninstall.sh
 If it errors out, you can run ProtonTPR directly.
 
 ```
-systemctl stop protontpr
+systemctl --user stop protontpr
 protontpr
 
 ```

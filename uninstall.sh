@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Removes ProtonTPR from host
-# Tested on Ubuntu 22.04
+# Tested on Bazzite F43.20260101
 
 # Verify executed as root
 if [ "$EUID" -ne 0 ]
@@ -10,15 +10,15 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Remove service from services
-systemctl stop protontpr
-systemctl disable protontpr
-rm /usr/lib/systemd/system/protontpr.service
+systemctl --user stop protontpr
+systemctl --user disable protontpr
+rm ~/.config/systemd/user/protontpr.service
 
 # Remove udev rule from udev
 rm /etc/udev/rules.d/60-thrustmaster-tpr.rules
 udevadm control --reload-rules
 
 # Remove executable from /usr/bin
-rm /usr/bin/protontpr
+rm /usr/local/bin/protontpr
 
 
